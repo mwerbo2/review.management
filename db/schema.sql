@@ -1,6 +1,8 @@
-Drop Table IF EXISTS users CASCADE;
+Drop Table IF EXISTS users
+CASCADE;
 
-CREATE TABLE users(
+CREATE TABLE users
+(
     user_id SERIAL PRIMARY KEY NOT NULL,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
