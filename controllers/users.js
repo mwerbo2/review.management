@@ -1,5 +1,5 @@
 const User = require('../models/user');
-
+// Private route to get all user data
 const getAllUsers = async (req, res) => {
     try {
         const user = await User.getAllUsers
@@ -8,7 +8,7 @@ const getAllUsers = async (req, res) => {
         return res.status(400).send(error)
     }
 }
-
+// Private route to post new user
 const createUser = async (req, res) => {
     try {
         const {first_name, last_name, email, password_digest, avatar } = req.body
@@ -17,6 +17,5 @@ const createUser = async (req, res) => {
     } catch (error) {
         return res.status(400).send(error)
     }
- 
 }
-export { getAllUsers }; 
+export { getAllUsers, createUser }; 
