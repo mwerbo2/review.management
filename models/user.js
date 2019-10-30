@@ -25,7 +25,14 @@ User.createUser = (req, result) => {
     })
 };
 
-
-
+User.updateUser = (req, result) => {
+    sql.query('UPDATE users SET first_name = req.body.first_name, last_name = req.body.last_name, email = req.body.email, password_digest = req.body.password_digest, validated = req.body.validated, avatar = req.body.avatar WHERE id = req.params.id', (err, res) => {
+        if (err) {
+            result(err, null)
+        } else {
+            return result(null, res)
+        }
+    })
+}
 
 module.exports = User;

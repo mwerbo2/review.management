@@ -18,4 +18,14 @@ const createUser = async (req, res) => {
         return res.status(400).send(error)
     }
 }
-export { getAllUsers, createUser }; 
+
+const udpateUser = async (req, res) => {
+    try {
+        const {first_name, last_name, email, password_digest, avatar } = req.body
+        const user = await User.updateUser(req.params.id, first_name, last_name, email, password_digest, avatar)
+        return res.status(201).send(user)
+    } catch (error) {
+        return res.status(400).send(error)
+    }
+}
+export { getAllUsers, createUser, updateUser }; 
