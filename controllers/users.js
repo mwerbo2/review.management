@@ -37,4 +37,10 @@ const deleteUser = async (req, res) => {
         return res.status(400).send(error);
     }
 }
-export { getAllUsers, createUser, updateUser, deleteUser }; 
+
+export { 
+    getAllUsers, 
+    createUser, 
+    updateUser, 
+    deleteUser 
+}; 
