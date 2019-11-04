@@ -10,7 +10,7 @@ Using Docker:
 docker run ...
 ```
 
-From [Github](https://github.com/mwerbo2/landlord.git):
+From [Github](https://github.com/mwerbo2/review.management.git):
 
 ```bash
 npm install client
