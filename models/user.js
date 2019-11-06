@@ -4,13 +4,13 @@ let User = (user) => {
     this.user = user.user
 }
 
-User.getAllUsers = (result) => {
-    sql.query('SELECT * FROM users;', (err, res) => {
+User.getAllUsers = (req, res) => {
+    sql.query('SELECT * FROM users;', (err, result) => {
         if (err) {
-            result(err, null)
+            console.log(err)
         }
         else {
-            return result(null, res);
+            return result
         }
     })
 };
