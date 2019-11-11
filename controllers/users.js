@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const bcrypt = require('bcrypt');
 // Private route to get all user data
 const getAllUsers = async (req, res) => {
     try {
@@ -12,8 +13,14 @@ const getAllUsers = async (req, res) => {
 const createUser = async (req, res) => {
     try {
         const {first_name, last_name, email, password_digest, avatar } = req.body
-        const user = await User.createUser(first_name, last_name, email, password_digest, avatar)
-        return res.status(201).send(user)
+        bcrypt.genSalt(10, (err, salt) => {
+            bcrypt.hash(password_digest, salt, (err, hash) => {
+            if (err) throw err
+            // Hashed password stored in db
+            const user = await User.createUser(first_name, last_name, email, hash, avatar)
+            return res.status(201).send(user)
+            })
+        }) 
     } catch (error) {
         return res.status(400).send(error)
     }
