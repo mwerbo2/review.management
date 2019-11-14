@@ -17,7 +17,7 @@ const createUser = async (req, res) => {
             bcrypt.hash(password_digest, salt, (err, hash) => {
             if (err) throw err
             // Hashed password stored in db
-            const user = await User.createUser(first_name, last_name, email, hash, avatar)
+            const user = User.createUser(first_name, last_name, email, hash, avatar)
             return res.status(201).send(user)
             })
         }) 
