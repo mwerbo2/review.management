@@ -32,11 +32,16 @@ const createUser = (req, res) => {
 }
 
 // PUT, Private, /api/users/:id, Update user
-const updateUser = async (req, res) => {
+const updateUser = (req, res) => {
     try {
-        const {first_name, last_name, email, password_digest, avatar } = req.body
-        const user = await User.updateUser(req.body)
-        return res.status(201).send(user)
+        const {first_name, last_name, email, password_digest, avatar } = req.body;
+        // TODO: Add in validation
+        console.log('Updating user', req.body);
+        console.log('Param', req.params)
+
+        User.updateUser(req, (user) => {
+            return res.status(201).send(user)
+        })
     } catch (error) {
         return res.status(400).send(error)
     }
