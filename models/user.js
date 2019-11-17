@@ -4,24 +4,26 @@ let User = (user) => {
     this.user = user.user
 }
 
-User.getAllUsers = (req, res) => {
-    sql.query('SELECT * FROM users;', (err, result) => {
+User.getAllUsers = (result) => {
+    sql.query('SELECT * FROM users;', (err, data) => {
         if (err) {
-            console.log(err)
+            result(null, err)
         }
         else {
-            return result
+            result(null, data)
         }
     })
 };
 
+
 User.createUser = (req, result) => {
-    sql.query('INSERT INTO users (first_name, last_name, email, password_digest, validated, avatar) VALUES ($1, $2, $3, $4, $5, $6)', [req.body.first_name, req.body.lastname, req.body.email, req.body.password_digest, req.body.validated, req.body.avatar], (err, res) => {
+    const {first_name, last_name, email, password_digest, validated, avatar} = req;    
+    sql.query('INSERT INTO users (first_name, last_name, email, password_digest, validated, avatar) VALUES (?, ?, ?, ?, ?, ?)', [first_name, last_name, email, password_digest, validated, avatar], (err, data) => {
         if (err) {
             result(err, null)
         } else {
-            return result(null, res)
-        }
+            result(null, data)
+        }   
     })
 };
 
