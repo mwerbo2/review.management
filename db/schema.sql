@@ -3,7 +3,7 @@ CASCADE;
 
 CREATE TABLE users
 (
-    user_id SERIAL PRIMARY KEY NOT NULL,
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     first_name TEXT NOT NULL,
     last_name TEXT NOT NULL,
     email VARCHAR(255) NOT NULL,
