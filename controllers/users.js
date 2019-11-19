@@ -32,14 +32,14 @@ const createUser = (req, res) => {
 }
 
 // PUT, Private, /api/users/:id, Update user
-const updateUser = (req, res) => {
+const updateEmail = (req, res) => {
     try {
-        const {first_name, last_name, email, password_digest, avatar } = req.body;
+        const updateFields = {
+            id: req.params.id,
+            email: req.body.email
+        }
         // TODO: Add in validation
-        console.log('Updating user', req.body);
-        console.log('Param', req.params)
-
-        User.updateUser(req, (user) => {
+        User.updateEmail(updateFields, (user) => {
             return res.status(201).send(user)
         })
     } catch (error) {
@@ -48,10 +48,11 @@ const updateUser = (req, res) => {
 }
 
 // DELETE, /api/users/:id, Delete user
-const deleteUser = async (req, res) => {
+const deleteUser = (req, res) => {
     try {
-        const user = await User.deleteUser(req.params.id);
-        return res.status(201).send(user);
+        User.deleteUser(req.params.id, (user) => {
+            return res.status(201).send({"msg": "Successfully deleted user"});
+        });
     } catch (error) {
         return res.status(400).send(error);
     }
@@ -60,6 +61,6 @@ const deleteUser = async (req, res) => {
 module.exports = { 
     getAllUsers, 
     createUser, 
-    updateUser, 
+    updateEmail, 
     deleteUser 
 }; 

@@ -27,9 +27,8 @@ User.createUser = (req, result) => {
     })
 };
 
-User.updateUser = (req, result) => {
-    console.log(req.body)
-    sql.query(`UPDATE users SET first_name = ${req.body.first_name}, last_name = ${req.body.last_name}, email = ${req.body.email}, password_digest = ${req.body.password_digest}, validated = ${req.body.validated}, avatar = ${req.body.avatar} WHERE id = ${req.params.id}`, (err, data) => {
+User.updateEmail = (req, result) => {
+    sql.query(`UPDATE users SET email = ? WHERE id = ?`, [req.email, req.id], (err, data) => {
         if (err) {
             result(err, null)
         } else {
@@ -39,7 +38,7 @@ User.updateUser = (req, result) => {
 }
 
 User.deleteUser = (req, result) => {
-    sql.query(`DELETE FROM users WHERE id = ${req.params.id}`, (err, res) => {
+    sql.query(`DELETE FROM users WHERE id = ?`, [req], (err, res) => {
         if (err) {
             result(err, null)
         } else {
