@@ -11,3 +11,18 @@ CREATE TABLE users
     validated BOOLEAN,
     avatar VARCHAR(255)
 );
+
+
+CREATE TABLE reviews
+(
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    user_id int,
+    building_id INT,
+    date_comment TIMESTAMP,
+    review VARCHAR,
+    thumbs_up INT,
+    thumbs_down INT,
+    comments JSON,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (building_id) REFERENCES buildings(id),
+)
