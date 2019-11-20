@@ -1,4 +1,4 @@
-var sql = require('../db/config.js')
+var sql = require('../db/config')
 
 let User = (user) => {
     this.user = user.user
@@ -7,7 +7,7 @@ let User = (user) => {
 User.getAllUsers = (result) => {
     sql.query('SELECT * FROM users;', (err, data) => {
         if (err) {
-            result(null, err)
+            result(err, null)
         }
         else {
             result(null, data)
