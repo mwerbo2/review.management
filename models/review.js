@@ -33,3 +33,13 @@ Review.updateReview = (req, result) => {
         };
     });
 };
+
+Review.deleteReview = (req, result) => {
+    sql.query('DELETE FROM reviews WHERE id = ?;', [req.id], (err, data) => {
+        if (err) {
+            result(err, null)
+        } else {
+            result(null, data)
+        }
+    })
+}
