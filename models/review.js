@@ -43,3 +43,13 @@ Review.deleteReview = (req, result) => {
         }
     })
 }
+
+Review.commentOnReview = (req, result) => {
+    sql.query('UPDATE reviews SET comments = ?', [req.comment], (err, data) => {
+        if (err) {
+            result(err, null)
+        } else {
+            result(null, data)
+        }
+    })
+}
