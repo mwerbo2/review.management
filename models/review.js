@@ -23,3 +23,13 @@ Review.createReview = (req, result) => {
         };
     });
 };
+
+Review.updateReview = (req, result) => {
+    sql.query('UPDATE reviews SET review = ?', [req.review], (err, data) => {
+        if (err) {
+            result(err, null)
+        } else {
+            result(null, data)
+        };
+    });
+};
