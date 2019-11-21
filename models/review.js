@@ -53,3 +53,13 @@ Review.commentOnReview = (req, result) => {
         }
     })
 }
+
+Review.submitVote = (req, result) => {
+    sql.query('UPDATE reviews SET ? = ? WHERE id = ?', [req.vote, req.value, req.id], (err, data) =>{
+        if (err) {
+            result(err, null)
+        } else {
+            result(null, data)
+        }
+    })
+}
