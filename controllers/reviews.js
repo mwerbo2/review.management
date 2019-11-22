@@ -31,7 +31,14 @@ const createReview = (req, res) => {
 // PUT, PRIVATE, /api/reviews/:id, create a review
 const updateReview = (req, res) => {
     try {
-        
+        const reviewFields = {
+            id = req.params.id,
+            review = req.body.review
+        }
+        Review.updateReview(reviewFields, (err, review) => {
+            if (err) res.status(400).send(err)
+            res.status(200).send(review)
+        })
     } catch (error) {
         res.status(400).send(error)
     }
