@@ -9,7 +9,6 @@ const findReviewById = (req, res) => {
         const { id } = req.params;
             Review.findReviewById(id, (review, err) => {
                 if (err) 
-                
                 res.status(200).send(review)
             })
     } catch (error) {
@@ -18,8 +17,12 @@ const findReviewById = (req, res) => {
 }
 // POST, PRIVATE, /api/reviews/, create a review
 const createReview = (req, res) => {
+    // ToDo: input validation
     try {
-        
+        Review.createReview(req.body, (err, review) => {
+            if (err) res.status(400).send(err)
+            res.status(200).send(review)
+        })
     } catch (error) {
         res.status(400).send(error)
     }
