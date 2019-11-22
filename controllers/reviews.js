@@ -46,7 +46,10 @@ const updateReview = (req, res) => {
 
 const deleteReview = (req, res) => {
     try {
-        
+        Review.deleteReview(req.params.id, (err, review) => {
+            if (err) res.status(400).send(err)
+            res.status(200).send(review)
+        })
     } catch (error) {
         res.status(400).send(error)
     }
