@@ -57,7 +57,14 @@ const deleteReview = (req, res) => {
 
 const commentOnReview = (req, res) => {
     try {
-        
+        const reviewFields = {
+            id = req.params.id,
+            comment = req.body.comment
+        }
+        Review.commentOnReview(reviewFields, (err, review) => {
+            if (err) res.status(400).send(err)
+            res.status(200).send(review);
+        })
     } catch (error) {
         res.status(400).send(error)
     }
