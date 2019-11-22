@@ -45,7 +45,7 @@ Review.deleteReview = (req, result) => {
 }
 
 Review.commentOnReview = (req, result) => {
-    sql.query('UPDATE reviews SET comments = ?', [req.comment], (err, data) => {
+    sql.query('UPDATE reviews SET comments = ? WHERE id = ?', [req.comment, req.id], (err, data) => {
         if (err) {
             result(err, null)
         } else {
