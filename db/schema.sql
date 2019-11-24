@@ -26,3 +26,12 @@ CREATE TABLE reviews
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (building_id) REFERENCES buildings(id),
 )
+
+CREATE TABLE validations (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    user_id int,
+    document VARCHAR(255),
+    status VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES users(id),
+
+)
