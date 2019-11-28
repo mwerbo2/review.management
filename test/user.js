@@ -17,4 +17,17 @@ describe('User', () => {
             done()
         })
     })
+    it('Should post to /api/users', (done) => {
+        chai.request(app)
+        .post('http://localhost:5000/api/users').send({
+            "first_name": "first",
+            "last_name": "last",
+            "email": "tester@gmail.com",
+            "avatar": "No avatar"
+        })
+        .end((err, res) => {
+            res.should.have.status(200);
+            done()
+        })
+    })
 })
