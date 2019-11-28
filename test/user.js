@@ -30,4 +30,14 @@ describe('User', () => {
             done()
         })
     })
+    it('Should update user email /api/users/id', (done) => {
+        chai.request(app)
+        .put('http://localhost:5000/api/users/3').send({
+            "email": "Testing"
+        })
+        .end((err, res) => {
+            res.should.have.status(200)
+            done()
+        })
+    })
 })
