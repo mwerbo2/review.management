@@ -42,7 +42,7 @@ describe('User', () => {
     })
     it('Should delete user /api/users/id', (done) => {
         chai.request(app)
-        .delete('http://lcoalhost:5000/api/users/3')
+        .delete('http://localhost:5000/api/users/3')
         .end((err, res) => {
             res.should.have.status(200)
             done()
