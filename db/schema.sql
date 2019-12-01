@@ -16,7 +16,7 @@ CREATE TABLE users
 CREATE TABLE reviews
 (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    user_id int,
+    user_id INT,
     building_id INT,
     date_comment TIMESTAMP,
     review VARCHAR,
@@ -29,7 +29,7 @@ CREATE TABLE reviews
 
 CREATE TABLE validations (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    user_id int,
+    user_id INT,
     document VARCHAR(255),
     status VARCHAR(255),
     FOREIGN KEY (user_id) REFERENCES users(id),
@@ -49,3 +49,15 @@ CREATE TABLE buildings (
     state VARCHAR(255),
     image VARCHAR(255),
 )   
+
+
+CREATE TABLE violations (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    building_id INT,
+    title VARCHAR(255),
+    description VARCHAR(255),
+    date_issued DATE,
+    status VARCHAR(255),
+    resolution VARCHAR(255),
+    FOREIGN KEY (building_id) REFERENCES buildings(id)
+)
