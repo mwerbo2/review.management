@@ -35,3 +35,17 @@ CREATE TABLE validations (
     FOREIGN KEY (user_id) REFERENCES users(id),
 
 )
+
+
+CREATE TABLE buildings (
+    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    name VARCHAR(255),
+    street_number VARCHAR(255),
+    direction VARCHAR(255),
+    street_name VARCHAR(255),
+    street_type VARCHAR(255),
+    zip VARCHAR(255),
+    city VARCHAR(255),
+    state VARCHAR(255),
+    image VARCHAR(255),
+)   
