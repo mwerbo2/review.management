@@ -1,14 +1,14 @@
 import { Result } from "express-validator";
-const Review = require('../models/reviews');
+const Review = require('../models/review');
 
 
 
-// GET, PRIVATE, /api/reviews/:id, get all reviews
+// GET, PRIVATE, /api/reviews/:id, get review by id
 const findReviewById = (req, res) => {
     try {
         const { id } = req.params;
             Review.findReviewById(id, (review, err) => {
-                if (err) 
+                if (err) res.status(400).send(err)
                 res.status(200).send(review)
             })
     } catch (error) {
