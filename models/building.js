@@ -13,3 +13,14 @@ Building.getBuildingById = (req, result) => {
         };
     });
 };
+
+Building.createBuilding = (req, result) => {
+    const { name, street_number, direction, street_name, street_type, zip, city, state, image } = req;
+    sql.query('INSERT INTO buildings (name, street_number, direction, street_name, street_type, zip, city, state, image) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?);', [name, street_number, direction, street_name, street_type, zip, city, state, image], (err, data) => {
+        if (err) {
+            result(err, null)
+        } else {
+            result(null, data)
+        };
+    });
+};
