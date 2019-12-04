@@ -25,6 +25,17 @@ const createBuilding = (req, res) => {
     };
 }
 
+const updateBuilding = (req, res) => {
+    try {
+        Building.updateBuilding(req.body, (building, err) => {
+            if (err) res.status(400).send(err)
+            res.status(200).send(building);
+        })
+    } catch (error) {
+        res.status(400).send(error)
+    };
+}
+
 module.exports = {
     findBuildingById,
     createBuilding
