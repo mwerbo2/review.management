@@ -1,4 +1,5 @@
 const Violation = require('../models/violation');
+// const { getBuildingId } = require('../utils/helpers')
 const axios = require('axios');
 
 // GET /api/violations/, fetch all violations from open source API

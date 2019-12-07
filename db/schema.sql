@@ -12,7 +12,6 @@ CREATE TABLE users
     avatar VARCHAR(255)
 );
 
-
 CREATE TABLE reviews
 (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -36,7 +35,6 @@ CREATE TABLE validations (
 
 )
 
-
 CREATE TABLE buildings (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     name VARCHAR(255),
@@ -49,7 +47,6 @@ CREATE TABLE buildings (
     state VARCHAR(255),
     image VARCHAR(255),
 )   
-
 
 CREATE TABLE violations (
     id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
