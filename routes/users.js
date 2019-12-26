@@ -1,7 +1,8 @@
 const { getAllUsers, createUser, updateEmail, deleteUser } = require('../controllers/users')
+const auth = require('../controllers/auth')
 module.exports = app => {
-    app.get('/api/users', getAllUsers);
-    app.post('/api/users', createUser)
-    app.put('/api/users/:id', updateEmail)
-    app.delete('/api/users/:id', deleteUser)
+    app.get('/api/users', auth, getAllUsers);
+    app.post('/api/users', auth, createUser)
+    app.put('/api/users/:id', auth, updateEmail)
+    app.delete('/api/users/:id', auth, deleteUser)
 }
