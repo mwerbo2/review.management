@@ -11,6 +11,19 @@ const getAllUsers = (req, res) => {
     })
 }
 
+// GET, Private, /api/users/:id/ get user by id
+const getUserById = (req, res) => {
+    const id = req.params.id
+    try {
+        User.getUserById(id, (err, user) => {
+            res.status(200).send(user)
+        })
+    } catch (error) {
+        if(error) throw error;
+    }
+  
+}
+
 // POST, Private, /api/users, Create new user
 const createUser = (req, res) => {
     try {
@@ -77,6 +90,7 @@ const deleteUser = (req, res) => {
 
 module.exports = { 
     getAllUsers, 
+    getUserById,
     createUser, 
     updateEmail, 
     deleteUser 
