@@ -15,6 +15,16 @@ User.getAllUsers = (result) => {
     })
 };
 
+User.getUserById = (req, result) => {
+    sql.query('SELECT first_name, last_name, email FROM users WHERE id = ?', [req], (err, data) => {
+        if (err) {
+            result(err, null)
+        } else {
+            result(null, data)
+        }   
+    })
+}
+
 
 User.createUser = (req, result) => {
     const {first_name, last_name, email, password_digest, validated, avatar} = req;    
