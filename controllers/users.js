@@ -1,5 +1,6 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator')
 
 // GET, Private, /api/users, get all users
@@ -22,7 +23,23 @@ const createUser = (req, res) => {
             
                 User.createUser(req.body, (err, user) =>{
                     if (err) res.status(400).send(err)
-                    res.status(201).send(user) 
+
+                    // Generate token and send in res
+                    const payload = {
+                        user: {
+                            id: user.insertId
+                        }
+                    };
+
+                    jwt.sign(
+                        payload,
+                        process.env.jwtSecret,
+                        { expiresIn: 36000 },
+                        (err, token) => {
+                            if (err) throw err;
+                            res.json({ token })
+                        }
+                    )
                 })
             })
         })
@@ -34,7 +51,7 @@ const createUser = (req, res) => {
 // PUT, Private, /api/users/:id, Update user
 const updateEmail = (req, res) => {
     try {
-        const updateFields = {
+const updateFields = {
             id: req.params.id,
             email: req.body.email
         }
