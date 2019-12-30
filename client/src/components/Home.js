@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import SearchBar from './SearchBar'
+import QuickSearchCards from './QuickSearchCards'
 
 
 const Home = props => {
@@ -18,7 +19,9 @@ const Home = props => {
                     < SearchBar />
                 </Container>
             </Jumbotron>
+            <QuickSearchCards />    
         </Container>
+        
     );
 };
 
