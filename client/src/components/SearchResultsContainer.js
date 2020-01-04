@@ -3,12 +3,13 @@ import SearchBar from './SearchBar'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import MapView from './MapView';
 
 export default function SearchResultsContainer() {
     return (
         <Container fluid>
             <Row>
-            <Col>Map</Col>
+            <Col><MapView /></Col>
             <Col>List</Col>
             </Row>
         </Container>

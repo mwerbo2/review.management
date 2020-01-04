@@ -8,6 +8,7 @@ import SearchBar from './SearchBar'
 import QuickSearchCards from './QuickSearchCards'
 
 
+
 const Home = props => {
     return (
         <Container fluid>
