@@ -16,6 +16,7 @@ class MapView extends React.Component {
   render() {
     return (
       <ReactMapGL
+        mapboxApiAccessToken={process.env.MAPBOX_ACCESS_TOKEN}
         {...this.state.viewport}
         onViewportChange={(viewport) => this.setState({viewport})}
       />
