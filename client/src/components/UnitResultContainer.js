@@ -2,6 +2,7 @@ import React, {Fragment} from 'react';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import UnitDescription from './UnitDescription';
 
 // TODO extract into style.css
 const styles = {
@@ -20,7 +21,7 @@ export default function UnitResultContainer() {
             <hr style={styles.hr}/>
             <Container>
                 <Row>
-                    <Col>Apartment Description</Col>
+                    <Col><UnitDescription /></Col>
                     <Col>Apartment Ratings</Col>
                 </Row>
                 <Row>
