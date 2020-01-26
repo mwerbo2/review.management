@@ -25,10 +25,13 @@ export default function UnitResultContainer() {
                     <Col md='6'><UnitDescription title={"Edgewater Place"} street={"4350 N Sheridan Ave,"} city={"Chicago Il, 60614"} /></Col>
                     <Col md='6'><UnitRatings averageRating={"4.1"} /></Col>
                 </Row>
+                
                 <Row>
                     <Col></Col>
                 </Row>
+                
             </Container>
+            <hr style={styles.hr}/>
         </Fragment>
     )
 }
