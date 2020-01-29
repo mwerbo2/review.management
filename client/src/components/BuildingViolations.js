@@ -18,8 +18,8 @@ export default function BuildingViolations() {
                     Description: {props.reportDescription}
                 </Col>
                 <Col>
-                    <FontAwesomeIcon icon={faThumbsUp} />{props.reportThumbsUp}
-                    <FontAwesomeIcon icon={faThumbsDown} />{props.reportThumbsDown}
+                    <FontAwesomeIcon icon={faThumbsUp} />{props.buildingReportThumbsUp}
+                    <FontAwesomeIcon icon={faThumbsDown} />{props.buildingReportThumbsDown}
                 </Col>
             </Row>
         </Container>
