@@ -1,0 +1,40 @@
+{
+  "name": "propertyreview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwerbo2/review.management.git"
+  },
+  "author": "Michael Werbowsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mwerbo2/review.management/issues"
+  },
+  "homepage": "https://github.com/mwerbo2/review.management#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "bootstrap": "^4.4.1",
+    "concurrently": "^5.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.6",
+    "express-validator": "^6.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.17.1",
+    "path": "^0.12.7",
+    "react-bootstrap": "^1.0.0-beta.16"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.2.2"
+  }
+}
