@@ -1,8 +1,9 @@
 import React, { Fragment } from 'react'
 import Navbar from "react-bootstrap/Navbar"
+import Button from "react-bootstrap/Button"
 import Nav from "react-bootstrap/Nav"
 
-export default function Navigation() {
+export default function Navigation(props) {
     return (
         <Fragment>
             <Navbar bg="light" expand="lg">

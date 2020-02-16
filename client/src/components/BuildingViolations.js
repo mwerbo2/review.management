@@ -1,12 +1,12 @@
 import React from 'react'
-import Container from 'react-bootstrap'
-import Row from 'react-bootstrap'
-import Col from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
-export default function BuildingViolations() {
+export default function BuildingViolations(props) {
     return (
         <Container>
             <Row>
