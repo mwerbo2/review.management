@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import UnitDescription from './UnitDescription';
 import UnitRatings from './UnitRatings';
+import ReviewsContainer from './ReviewsContainer';
 
 // TODO extract into style.css
 const styles = {
@@ -25,13 +26,13 @@ export default function UnitResultContainer() {
                     <Col md='6'><UnitDescription title={"Edgewater Place"} street={"4350 N Sheridan Ave,"} city={"Chicago Il, 60614"} /></Col>
                     <Col md='6'><UnitRatings averageRating={"4.1"} /></Col>
                 </Row>
-                
-                <Row>
-                    <Col></Col>
-                </Row>
-                
             </Container>
-            <hr style={styles.hr}/>
+            <hr style={styles.hr}/> 
+            <Container>
+                <Row>
+                    <Col><ReviewsContainer/></Col>
+                </Row>
+            </Container>
         </Fragment>
     )
 }

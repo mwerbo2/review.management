@@ -1,4 +1,8 @@
 import React from 'react'
+import BuildingViolations from './BuildingViolations';
+import BuildingReviews from './BuildingReviews';
+import ReviewsNav from './ReviewsNav';
+
 
 export default function ReviewsContainer() {
     
@@ -7,7 +11,9 @@ export default function ReviewsContainer() {
     // Comment component
     return (
         <div>
-            
+            <ReviewsNav />
+            <BuildingViolations />
+            <BuildingReviews />
         </div>
     )
 }

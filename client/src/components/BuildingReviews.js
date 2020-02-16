@@ -1,7 +1,7 @@
 import React from 'react'
-import Container from 'react-bootstrap'
-import Row from 'react-bootstrap'
-import Col from 'react-bootstrap'
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
@@ -17,16 +17,16 @@ export default function BuildingReviews(props) {
             </Col>
             <Col>
                 <h2>Ratings</h2>
-                {props.ratings.cleanliness} Cleanliness <br/>
-                {props.ratings.communication} Communication <br/>
-                {props.ratings.maintenance} Maintenance <br/>
+                {props.cleanliness} Cleanliness <br/>
+                {props.communication} Communication <br/>
+                {props.maintenance} Maintenance <br/>
             </Col>
             <Col>
-                Comment: {props.rating.comment}
+                Comment: {props.comment}
             </Col>
             <Col>
-                <FontAwesomeIcon icon={faThumbsUp} />{props.report.reviewThumbsUp}
-                <FontAwesomeIcon icon={faThumbsDown} />{props.report.reviewThumbsDown}
+                <FontAwesomeIcon icon={faThumbsUp} />{props.reviewThumbsUp}
+                <FontAwesomeIcon icon={faThumbsDown} />{props.reviewThumbsDown}
             </Col>
         </Row>
     </Container>
