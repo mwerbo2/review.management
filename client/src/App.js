@@ -5,15 +5,21 @@ import Home from './components/Home';
 import SearchResults from './components/SearchResultsContainer';
 import UnitResult from './components/UnitResultContainer';
 
+// Brings redux functionality into react
+import { Provider } from 'react-redux';
+import store from './store';
+
 function App() {
   return (
-    <Router>
-      <Fragment>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/search' component={SearchResults} />
-        <Route exact path='/result' component={UnitResult} />
-      </Fragment>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Fragment>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/search' component={SearchResults} />
+          <Route exact path='/result' component={UnitResult} />
+        </Fragment>
+      </Router>
+    </Provider>
   );
 }
 
