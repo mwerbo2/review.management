@@ -1,7 +1,7 @@
-import react from 'react'
-import Modal from 'react-bootstrap';
-import Form from 'react-bootstrap'
-import Button from 'react-bootstrap'
+import React from 'react'
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 
 export default function SignUp() {
 return (
