@@ -1,9 +1,10 @@
 import react from 'react'
+import { connect } from 'react-redux'
 import Modal from 'react-bootstrap';
 import Form from 'react-bootstrap'
 import Button from 'react-bootstrap'
 
-export default function SignUp() {
+function SignUp() {
 return (
     <Modal.Dialog>
         <Modal.Header>
@@ -28,3 +29,5 @@ return (
     </Modal.Dialog>
     )
 }
+
+export default connect()(SignUp)
