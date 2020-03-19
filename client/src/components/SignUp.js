@@ -1,8 +1,8 @@
-import react from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
-import Modal from 'react-bootstrap';
-import Form from 'react-bootstrap'
-import Button from 'react-bootstrap'
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 function SignUp() {
 return (
