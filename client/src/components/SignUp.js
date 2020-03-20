@@ -12,17 +12,17 @@ const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
     email: '',
-    password: ''
+    password_digest: ''
 })
 
-const {first_name, last_name, email, password} = formData;
+const {first_name, last_name, email, password_digest} = formData;
 
 const onChange = e => 
 setFormData({...formData, [e.target.name]: e.target.value})
 
 const onSubmit = async e => {
     e.preventDefault();
-    register({first_name, last_name, email, password})
+    register({first_name, last_name, email, password_digest})
 }
 
 
@@ -41,7 +41,7 @@ return (
                     <Form.Label>Email</Form.Label>
                     <Form.Control type="email" name="email" value={email} placeholder="Email" onChange={e => onChange(e)}/>
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" name="password" value={password} placeholder="password" onChange={e => onChange(e)}/>
+                    <Form.Control type="password" name="password_digest" value={password_digest} placeholder="password" onChange={e => onChange(e)}/>
                 </Form.Group>
                 <Button varialn="primary" type="submit">Sign up</Button>
             </Form>
