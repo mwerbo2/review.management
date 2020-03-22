@@ -7,10 +7,10 @@ export default function Navigation(props) {
     return (
         <Fragment>
             <Navbar bg="light" expand="lg">
-                <Navbar.Brand href="#Home">Landlord</Navbar.Brand>
+                <Navbar.Brand href="/">Landlord</Navbar.Brand>
                 <Nav className="justify-content-end">
-                    <Nav.Link href="#Post">Post a Review</Nav.Link>
-                    <Nav.Link href="#Register">Login / Sign Up</Nav.Link>
+                    <Nav.Link href="post">Post a Review</Nav.Link>
+                    <Nav.Link href="signup">Login / Sign Up</Nav.Link>
                     {props.resultspage && <Fragment><Button>Start a New Search</Button><Button>Post a Review</Button><Button>Login / Signup</Button></Fragment>}
                 </Nav>
             </Navbar>
