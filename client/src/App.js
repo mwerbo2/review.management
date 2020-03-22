@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './components/Home';
@@ -10,8 +10,19 @@ import SignUp from './components/SignUp'
 // Brings redux functionality into react
 import { Provider } from 'react-redux';
 import store from './store';
+import setAuthToken from './utils/setAuthToken';
+import { loadUser } from './actions/auth';
 
-function App() {
+if (localStorage.token) {
+  setAuthToken(localStorage.token)
+}
+
+const App= () => {
+
+  useEffect(() => {
+    store.dispatch(loadUser())
+  }, []);
+  
   return (
     <Provider store={store}>
       <Router>

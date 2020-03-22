@@ -3,17 +3,9 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { check, validationResult } = require('express-validator')
 
-// GET, Private, /api/users, get all users
-const getAllUsers = (req, res) => {
-    User.getAllUsers((err, users) => {
-        if (err) res.send(err);
-        res.status(200).send(users)
-    })
-}
-
-// GET, Private, /api/users/:id/ get user by id
+// GET, Private, /api/users/ get user by id
 const getUserById = (req, res) => {
-    const id = req.params.id
+    const id = req.user   
     try {
         User.getUserById(id, (err, user) => {
             res.status(200).send(user)
@@ -89,7 +81,6 @@ const deleteUser = (req, res) => {
 }
 
 module.exports = { 
-    getAllUsers, 
     getUserById,
     createUser, 
     updateEmail, 
