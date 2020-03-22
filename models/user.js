@@ -4,23 +4,12 @@ let User = (user) => {
     this.user = user.user
 }
 
-User.getAllUsers = (result) => {
-    sql.query('SELECT * FROM users;', (err, data) => {
-        if (err) {
-            result(err, null)
-        }
-        else {
-            result(null, data)
-        }
-    })
-};
-
 User.getUserById = (req, result) => {
-    sql.query('SELECT first_name, last_name, email FROM users WHERE id = ?', [req], (err, data) => {
+    sql.query('SELECT first_name, last_name, email FROM users WHERE id = ?', [req.id], (err, data) => {
         if (err) {
             result(err, null)
         } else {
-            result(null, data)
+            result(null, data[0])
         }   
     })
 }
